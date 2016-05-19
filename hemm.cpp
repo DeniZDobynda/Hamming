@@ -3,8 +3,10 @@
 
 QString code(const char* text)
 {
+    //must have 7 digits
     if (text[7] != '\0') return NULL;
 
+    //creating set from 4 controlling bits (referense to binary arithmeticks)
     int p[4] = {text[0]-'0'+text[1]-'0'+text[3]-'0'+text[4]-'0'+text[6]-'0',
                         text[0]-'0'+text[2]-'0'+text[3]-'0'+text[5]-'0'+text[6]-'0',
                         text[1]-'0'+text[2]-'0'+text[3]-'0',
