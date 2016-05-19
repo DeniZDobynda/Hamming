@@ -19,8 +19,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_lineEdit_returnPressed()
 {
+    //getting text from field in ui
     QString text_to_code = ui->lineEdit->text();
 
+    //crutch to check if have not only 1 and 0
     text_to_code.replace(QString("1"), QString(""));
     text_to_code.replace(QString("0"), QString(""));
 
@@ -32,18 +34,23 @@ void MainWindow::on_lineEdit_returnPressed()
         return ;
     }
 
+    //regetting text to code
     text_to_code = ui->lineEdit->text();
 
     QString coded = "";
+    //expanding string with codded text
     coded.append( code(text_to_code.toLatin1().data() ) );
 
+    //displaying codded text
     ui->textBrowser->setText( coded);
 }
 
 void MainWindow::on_lineEdit_3_returnPressed()
 {
+    //scanning ui field for text to decode
     int error = decode(ui->lineEdit_3->text().toLocal8Bit().data());
 
+    //displaying point of error on ui
     ui->lcdNumber->display(error);
 
     QString result = ui->lineEdit_3->text();
